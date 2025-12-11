@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><Smart-eyes></Smart-eyes></title>
+
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            margin: 0;
+            padding: 60px 20px;
+            color: white;
+        }
+
+        h2 {
+            font-size: 34px;
+            font-weight: bold;
+            text-shadow: 0 3px 10px rgba(0,0,0,0.35);
+            margin-bottom: 25px;
+        }
+
+        form {
+            background: rgba(255, 255, 255, 0.10);
+            padding: 35px;
+            border-radius: 14px;
+            width: 90%;
+            max-width: 420px;
+            margin: auto;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+            backdrop-filter: blur(8px);
+            animation: fadeIn 0.8s ease;
+        }
+
+        input[type="file"] {
+            padding: 12px;
+            border-radius: 8px;
+            background: white;
+            color: black;
+            border: none;
+            cursor: pointer;
+            width: 90%;
+            font-size: 15px;
+        }
+
+        button {
+            background: linear-gradient(45deg, #00c6ff, #0072ff);
+            padding: 12px 25px;
+            border-radius: 8px;
+            border: none;
+            font-size: 18px;
+            color: white;
+            cursor: pointer;
+            margin-top: 18px;
+            width: 70%;
+            transition: 0.3s ease;
+            box-shadow: 0 5px 12px rgba(0,0,0,0.3);
+        }
+
+        button:hover {
+            background: linear-gradient(45deg, #0099dd, #005fcc);
+            transform: scale(1.07);
+        }
+
+        .info-box {
+            margin-top: 40px;
+            background: rgba(255,255,255,0.10);
+            padding: 25px;
+            border-radius: 12px;
+            width: 90%;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: left;
+            line-height: 1.6;
+            backdrop-filter: blur(6px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            animation: fadeIn 1.2s ease;
+        }
+
+        .info-box h3 {
+            color: #fff;
+            text-shadow: 0 2px 6px rgba(0,0,0,0.3);
+        }
+
+        .info-box ul li {
+            margin-bottom: 6px;
+        }
+
+        .disclaimer {
+            margin-top: 25px;
+            font-size: 14px;
+            color: #e6e6e6;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.85;
+            line-height: 1.5;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 600px) {
+            h2 { font-size: 28px; }
+            button { font-size: 16px; width: 80%; }
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <h2>Diabetic Retinopathy Detection</h2>
+
+    <form action="/predict" method="POST" enctype="multipart/form-data">
+        <input type="file" name="file" accept="image/*" required><br><br>
+        <button type="submit">Predict</button>
+    </form>
+
+
+    <!-- ✅ DR Information Section -->
+    <div class="info-box">
+        <h3>📌 What is Diabetic Retinopathy?</h3>
+        <p>
+            Diabetic Retinopathy (DR) is a diabetes-related eye disease that affects the retina. If untreated, it may lead to partial or complete vision loss. Early detection helps prevent progression. 
+        </p>
+
+        <h3>📊 DR Severity Levels (0–4)</h3>
+        <ul>
+            <li><b>0 — No DR:</b> Healthy retina, no signs of damage.</li>
+            <li><b>1 — Mild:</b> Small microaneurysms may appear.</li>
+            <li><b>2 — Moderate:</b> More visible damage and hemorrhages.</li>
+            <li><b>3 — Severe:</b> Large areas of blocked blood vessels.</li>
+            <li><b>4 — Proliferative DR:</b> Advanced stage; abnormal new blood vessels grow.</li>
+        </ul>
+
+        <p>
+            Our AI model analyzes the uploaded fundus image and predicts the DR stage to support early screening.
+        </p>
+    </div>
+
+
+    <p class="disclaimer">
+        <b>Disclaimer:</b> Smart Eyes is an AI-based screening tool. 
+        It is NOT a replacement for clinical diagnosis. Always consult a certified ophthalmologist for final evaluation.
+    </p>
+
+</body>
+</html>
